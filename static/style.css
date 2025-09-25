@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: 'Yu Gothic', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif;
@@ -72,7 +71,6 @@ main {
   text-align: left;
 }
 
-/* ホバー対応のマップボタン */
 .map-button {
   display: inline-block;
   padding: 10px 25px;
@@ -102,7 +100,7 @@ header {
 
 .title-area {
   text-align: center;
-  flex: 1; /* 真ん中に広がる */
+  flex: 1;
 }
 
 .sub-title {
