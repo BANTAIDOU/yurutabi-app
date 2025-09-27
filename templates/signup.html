@@ -2,38 +2,32 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>サインアップ | ゆるたび</title>
+  <title>サインアップ - ゆるたび</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <header>
-    <h1>サインアップ</h1>
-  </header>
+<header>
+  <div class="title-area">
+    <div class="sub-title">海外旅行でおすすめの名所＆人気のスポットランキング</div>
+    <h1 class="main-title">ゆるたび</h1>
+  </div>
+  {% if username %}
+    <a href="{{ url_for('logout') }}" class="login-button">ログアウト ({{ username }})</a>
+  {% else %}
+    <a href="{{ url_for('login') }}" class="login-button">ログイン</a>
+  {% endif %}
+</header>
 
-  <main>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul style="color:red;">
-          {% for msg in messages %}
-            <li>{{ msg }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-
-    <form method="POST" action="{{ url_for('signup') }}" class="login-form" style="max-width: 400px; margin:auto;">
-      <label for="username">ユーザー名</label>
-      <input type="text" id="username" name="username" required>
-
-      <label for="password">パスワード</label>
-      <input type="password" id="password" name="password" required>
-
-      <button type="submit" class="map-button" style="margin-top:20px;">登録する</button>
-    </form>
-
-    <p style="text-align:center; margin-top:10px;">
-      すでにアカウントをお持ちですか？ <a href="{{ url_for('login') }}">ログイン</a>
-    </p>
-  </main>
+<main style="max-width:400px; margin:40px auto; text-align:center;">
+  <h2>サインアップ</h2>
+  <form method="POST" style="display:flex; flex-direction:column; gap:15px;">
+    <input type="text" name="username" placeholder="ユーザー名" required style="padding:10px; font-size:1rem;">
+    <input type="password" name="password" placeholder="パスワード" required style="padding:10px; font-size:1rem;">
+    <button type="submit" class="map-button">登録</button>
+  </form>
+  <p style="margin-top:15px;">
+    <a href="{{ url_for('login') }}">ログインはこちら</a>
+  </p>
+</main>
 </body>
 </html>
