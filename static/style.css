@@ -51,17 +51,57 @@ main {
 
 .swiper {
   width: 100%;
-  height: 300px;
+  /* 大きめの表示に変更 */
+  height: 440px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
   margin-bottom: 1rem;
 }
 
+/* 各スライドを相対位置にしてラベルを絶対配置できるようにする */
+.swiper-slide {
+  position: relative;
+}
+
 .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* 右下に小さく薄い黒い四角（半透明）／白文字で国名を表示 */
+.country-label {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 0.45); /* 薄い黒 */
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  backdrop-filter: blur(2px);
+}
+
+/* レスポンシブ: 小さい画面では高さを下げる */
+@media (max-width: 600px) {
+  .swiper {
+    height: 260px;
+  }
+  .country-label {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+    right: 8px;
+    bottom: 8px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .swiper {
+    height: 340px;
+  }
 }
 
 .description {
